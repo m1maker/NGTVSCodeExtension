@@ -31,6 +31,12 @@
     ],
     "main": "./client/out/extension",
     "contributes": {
+        "commands": [
+        {
+            "command": "angel-lsp.runNGT",
+            "title": "Run NGT"
+        }
+        ],
         "languages": [
             {
                 "id": "angelscript",
@@ -50,7 +56,7 @@
             {
                 "id": "angelscript-predefined",
                 "filenames": [
-                    "as.predefined"
+                    "C:\\Program Files\\NGT\\as.predefined"
                 ],
                 "configuration": "./language-configuration.json",
                 "aliases": [
@@ -111,13 +117,13 @@
                 "angelScript.formatter.indentSpaces": {
                     "scope": "window",
                     "type": "number",
-                    "default": 4,
+                    "default": 1,
                     "description": "Controls the number of spaces for indentation."
                 },
                 "angelScript.formatter.useTabIndent": {
                     "scope": "window",
                     "type": "boolean",
-                    "default": false,
+                    "default": true,
                     "description": "Controls whether to use tabs for indentation instead of spaces."
                 },
                 "angelScript.trace.server": {

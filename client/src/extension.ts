@@ -3,6 +3,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  * ------------------------------------------------------------------------------------------ */
 
+import * as vscode from 'vscode';
 import * as path from 'path';
 import {workspace, ExtensionContext} from 'vscode';
 
@@ -12,10 +13,32 @@ import {
     ServerOptions,
     TransportKind
 } from 'vscode-languageclient/node';
+import { exec } from 'child_process';
+import { join } from 'path';
+import * as fs from 'fs';
+
 
 let client: LanguageClient;
 
 export function activate(context: ExtensionContext) {
+    let disposable = vscode.commands.registerCommand('angel-lsp.runNGT', () => {
+        const command = "C:/Program Files/NGT/NGT -p";
+        
+        exec(command, (error, stdout, stderr) => {
+            if (error) {
+                console.error("Error executing command: ${error.message}");
+                return;
+            }
+            if (stderr) {
+                console.error("stderr: ${stderr}");
+                return;
+            }
+            console.log("stdout: ${stdout}");
+        });
+    });
+
+    context.subscriptions.push(disposable);
+    vscode.commands.executeCommand('angel-lsp.runNGT');
     // The server is implemented in node
     const serverModule = context.asAbsolutePath(
         path.join('server', 'out', 'server.js')
