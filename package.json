@@ -26,7 +26,8 @@
     "activationEvents": [
         "onLanguage:angelscript",
         "onLanguage:angelscript-predefined",
-        "workspaceContains:**/*.as"
+        "workspaceContains:**/*.as",
+        "workspaceContains:**/*.ngt"
     ],
     "main": "./client/out/extension",
     "contributes": {
@@ -34,7 +35,8 @@
             {
                 "id": "angelscript",
                 "extensions": [
-                    ".as"
+                    ".as",
+                    ".ngt"
                 ],
                 "configuration": "./language-configuration.json",
                 "aliases": [
