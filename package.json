@@ -150,5 +150,8 @@
         "eslint": "^8.57.0",
         "mocha": "^10.3.0",
         "typescript": "^5.3.3"
+    },
+    "dependencies": {
+        "gvc": "^0.2.2"
     }
 }
